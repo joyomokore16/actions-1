@@ -12,5 +12,10 @@ jobs:
             - name: List files 
               run: ls 
             
-            - name: Read file
-              run: cat README.md 
+            - name: Read file (if it exists)
+              run: |
+                if [ -f README.md ]; then
+                  cat README.md
+                else
+                  echo "README.md not found"
+                fi
